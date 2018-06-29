@@ -63,6 +63,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
 gem 'dotenv-rails'
+gem 'activeadmin'#, '~> 1.0.0.pre4' #github: 'activeadmin'
 group :development do
   gem "letter_opener"
   gem 'pry'
