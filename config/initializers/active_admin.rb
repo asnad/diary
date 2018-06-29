@@ -62,7 +62,7 @@ ActiveAdmin.setup do |config|
   # method in a before filter of all controller actions to
   # ensure that there is a user with proper rights. You can use
   # CanCanAdapter or make your own. Please refer to documentation.
-  # config.authorization_adapter = ActiveAdmin::CanCanAdapter
+  config.authorization_adapter = ActiveAdmin::CanCanAdapter
 
   # In case you prefer Pundit over other solutions you can here pass
   # the name of default policy class. This policy will be used in every
@@ -240,12 +240,12 @@ ActiveAdmin.setup do |config|
   config.load_paths = [File.expand_path('app/admin', Rails.root), File.expand_path('app/manager', Rails.root)]
   config.namespace :admin do |admin|
     admin.authentication_method = :authenticate_admin!
-    admin.root_to = 'users#index'
+    admin.root_to = 'dashboard#index'
     config.current_user_method = :current_administrator
   end
   config.namespace :manager do |manager|
     manager.authentication_method = :authenticate_manager!
-    manager.root_to = 'users#index'
+    manager.root_to = 'dashboard#index'
     # config.current_user_method = :current_manager
   end
   # == Pagination
