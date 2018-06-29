@@ -3,5 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  enum user_type: [:member, :manager, :administrator]
+  enum user_type: [:member, :coordinator, :administrator]
+  enum status: [:active, :banned]
+
+  def active_for_authentication?
+    super && !self.banned?
+  end
 end
