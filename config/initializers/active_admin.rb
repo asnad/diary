@@ -237,13 +237,13 @@ ActiveAdmin.setup do |config|
   #
   # To disable/customize for the :admin namespace:
   #
-  config.load_paths = [File.expand_path('app/admin', Rails.root), File.expand_path('app/coordinator', Rails.root)]
+  config.load_paths = [File.expand_path('app/admin', Rails.root), File.expand_path('app/company_admin', Rails.root)]
   config.namespace :admin do |admin|
     admin.authentication_method = :authenticate_admin!
     admin.root_to = 'dashboard#index'
     config.current_user_method = :current_administrator
   end
-  config.namespace :coordinator do |coordinator|
+  config.namespace :company_admin do |coordinator|
     coordinator.authentication_method = :authenticate_coordinator!
     coordinator.root_to = 'dashboard#index'
     # config.current_user_method = :current_coordinator

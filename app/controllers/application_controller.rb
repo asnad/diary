@@ -18,7 +18,7 @@ class ApplicationController < ActionController::Base
     if resource.administrator?
       admin_root_path
     elsif resource.coordinator?
-      coordinator_root_path
+      company_admin_root_path
     else
       root_path
     end
