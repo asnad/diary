@@ -4,9 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   enum user_type: [:member, :coordinator, :administrator]
-  enum status: [:active, :banned]
+  enum status: [:active, :disabled]
 
   def active_for_authentication?
-    super && !self.banned?
+    super && !self.disabled?
   end
 end
