@@ -1,7 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    trait :invalid_teacher do
-      user_type User.user_types[:teacher]
+    trait :invalid_user do
     end    
   end
 end
