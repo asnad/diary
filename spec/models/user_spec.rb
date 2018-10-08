@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context "User tests" do
+    let (:teacher) {build :user, :invalid_teacher}
+    it "render" do
+    end
+  end
 end

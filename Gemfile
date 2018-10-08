@@ -66,11 +66,10 @@ gem 'dotenv-rails'
 gem 'activeadmin'#, '~> 1.0.0.pre4' #github: 'activeadmin'
 gem 'cancancan', '~> 1.10'
 
-group :development do
-  gem "letter_opener"
-  gem 'pry'
-end
+
 group :development, :test do
+  gem 'pry'
+  gem "letter_opener"
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
