@@ -5,7 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   enum user_type: [:member, :coordinator, :administrator]
   enum status: [:active, :disabled]
-
+  has_one_attached :avatar
   def active_for_authentication?
     super && !self.disabled?
   end

@@ -2,7 +2,7 @@ ActiveAdmin.register User do
 
   menu label: 'User List', parent: 'Users', priority: 1
   permit_params do
-    allowed = [:first_name, :last_name, :email, :user_type]
+    allowed = [:first_name, :last_name, :email, :user_type, :avatar]
     allowed.push :status if resource.id != current_user.id
     allowed.push :password if !params[:user][:password].blank?
 
@@ -39,6 +39,9 @@ ActiveAdmin.register User do
   end
   show do
     attributes_table do
+      row "Avatar" do |user|
+        image_tag user.avatar.variant(resize: "50x50")
+      end
       row :email
       row :first_name
       row :last_name
@@ -60,6 +63,7 @@ ActiveAdmin.register User do
       f.input :password, input_html:{value: ""}
       f.input :status, as: :select, collection: User.statuses.keys, include_blank: false if f.object.id != current_user.id
       f.input :user_type, as: :select, collection: User.user_types.keys, include_blank: false
+      f.input :avatar, as: :file
     end
     f.actions
   end
