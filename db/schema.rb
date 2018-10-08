@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_08_102101) do
+ActiveRecord::Schema.define(version: 2018_10_08_104138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 2018_10_08_102101) do
     t.index ["standard"], name: "index_batches_on_standard"
   end
 
+  create_table "school_batches", force: :cascade do |t|
+    t.bigint "batch_id"
+    t.integer "status", default: 0
+    t.string "batchable_type"
+    t.bigint "batchable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["batch_id"], name: "index_school_batches_on_batch_id"
+    t.index ["batchable_type", "batchable_id"], name: "index_school_batches_on_batchable_type_and_batchable_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -82,4 +93,5 @@ ActiveRecord::Schema.define(version: 2018_10_08_102101) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "school_batches", "batches"
 end

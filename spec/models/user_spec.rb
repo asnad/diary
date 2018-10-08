@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
+  context "Roles" do
+    it "contain rolls" do
+      User.user_types.should == {"teacher"=>0, "guardian"=>1, "administrator"=>2}
+    end
+  end
+  
   context "Invalid users and default values" do
     let (:user) {build :user, :invalid_user}
     it "it should not be valid" do
@@ -31,6 +37,28 @@ RSpec.describe User, type: :model do
     it "disabled user" do
       user.disabled!
       user.active_for_authentication?.should == false
+    end
+  end
+
+  context "Associations" do
+    let(:school_batch) {build :school_batch, :invalid_school_batch}
+    let(:batch){build :batch, :valid_batch}
+    let(:teacher){build :user, :valid_user}
+    it "has many school batches" do
+      school_batch.batch = batch
+      teacher.batches << batch
+      teacher.batches.length.should == 1
+      teacher.school_batches.length.should == 1
+    end
+
+    it "associated with batches" do
+      t = User.reflect_on_association(:batches)
+      expect(t.macro).to eq(:has_many)
+    end
+
+    it "associated with school batches" do
+      t = User.reflect_on_association(:school_batches)
+      expect(t.macro).to eq(:has_many)
     end
   end
 end
