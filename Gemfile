@@ -70,3 +70,7 @@ group :development do
   gem "letter_opener"
   gem 'pry'
 end
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+end
