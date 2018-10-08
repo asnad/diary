@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: c5ce80c27eb546227185560d032113d2cc42e94b
+  branch: master
+  specs:
+    faker (1.9.1)
+      i18n (>= 0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -301,6 +309,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   factory_girl_rails
+  faker!
   jbuilder (~> 2.5)
   letter_opener
   listen (>= 3.0.5, < 3.2)

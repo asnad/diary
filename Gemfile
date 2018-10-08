@@ -68,6 +68,7 @@ gem 'cancancan', '~> 1.10'
 
 
 group :development, :test do
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
   gem 'pry'
   gem "letter_opener"
   gem 'rspec-rails'
