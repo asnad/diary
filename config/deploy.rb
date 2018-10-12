@@ -3,7 +3,7 @@ lock "~> 3.11.0"
 
 set :application, "diary"
 set :repo_url, "git@github.com:asnad/diary.git"
-set :branch, :master
+set :branch, :develop
 set :deploy_to, '/home/deploy/diary'
 set :pty, true
 set :linked_files, %w{config/database.yml config/secrets.yml}
