@@ -74,3 +74,11 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
 end
+gem 'figaro'
+group :development do
+  gem 'capistrano'
+  gem 'capistrano3-puma'
+  gem 'capistrano-rails' #Should already be in your Gemfile
+  gem 'capistrano-bundler'
+  gem 'capistrano-rvm'
+end
