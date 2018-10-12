@@ -28,3 +28,5 @@ config/database.yml
 .env.development
 .env.production
 .env
+config/database.yml
+
