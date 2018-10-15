@@ -7,7 +7,7 @@ class User < ApplicationRecord
   enum user_type: [:teacher, :guardian, :administrator]
   enum status: [:active, :disabled]
 
-  validates :first_name, :last_name, presence: true
+  # validates :first_name, :last_name, presence: true
   has_many :school_batches, as: :batchable
   has_many :batches, through: :school_batches
   has_one_attached :avatar
