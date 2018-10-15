@@ -7,7 +7,7 @@
 # server "example.com", user: "deploy", roles: %w{app web}, other_property: :other_value
 # server "db.example.com", user: "deploy", roles: %w{db}
 
-server '172.31.32.28', user: 'ubuntu', roles: %w{web app db}
+server '18.219.5.194', user: 'ubuntu', roles: %w{web app db}
 
 # role-based syntax
 # ==================
@@ -21,7 +21,7 @@ server '172.31.32.28', user: 'ubuntu', roles: %w{web app db}
 # role :web, %w{user1@primary.com user2@additional.com}, other_property: :other_value
 # role :db,  %w{deploy@example.com}
 set :ssh_options, {
-    keys: %w(~/Downloads/diary.pem),
+    keys: %w(~/.ssh/diary.pem),
     forward_agent: true
     #auth_methods: %w(password)
   }
